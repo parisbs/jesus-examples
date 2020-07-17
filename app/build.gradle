@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion sdk.compile
+
+    defaultConfig {
+        applicationId "com.example.jesus"
+        minSdkVersion sdk.min
+        targetSdkVersion sdk.target
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation libraries.kotlin
+    implementation libraries.androidx.appcompat
+    implementation libraries.androidx.ktx
+    implementation libraries.androidx.legacy
+    implementation libraries.material.material
+    implementation libraries.androidx.constraintLayout
+    implementation libraries.androidx.recyclerView
+    implementation libraries.androidx.navigationFragment
+    implementation libraries.androidx.navigationUi
+    implementation libraries.androidx.navigationFragmentKtx
+    implementation libraries.androidx.navigationUiKtx
+    implementation libraries.lifecycle.ktx
+    implementation libraries.lifecycle.extensions
+    implementation libraries.androidx.preferences
+    implementation libraries.androidx.preferencesKtx
+
+    implementation libraries.apollo.runtime
+    implementation libraries.apollo.cache
+    implementation libraries.coroutines.core
+    implementation libraries.apollo.coroutinesSupport
+    implementation libraries.squareup.okhttp3
+    implementation libraries.squareup.loggingInterceptor
+
+    implementation libraries.timber
+
+    implementation libraries.koin.core
+    implementation libraries.koin.viewModel
+
+    testImplementation libraries.junit
+    androidTestImplementation libraries.extJunit
+    androidTestImplementation libraries.espressoCore
+}
